@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: Expenses API
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/expense_db
+    username: postgre
+    password: 9951
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # cria e atualiza tabelas automaticamente
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+# Porta onde a aplicação roda localmente
+server:
+  port: 8080
+
+# Configurações de segurança para o JWT
+security:
+  jwt:
+    secret-key: "chave-super-secreta-para-gerar-tokens" # substitua por uma variável de ambiente em produção
+    expiration: 86400000 # 24h em milissegundos
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
